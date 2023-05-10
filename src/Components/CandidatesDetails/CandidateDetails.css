@@ -1,16 +1,10 @@
-
-
 /*------------------------------------TABLET-------------------------------------*/
 
-@media screen and (max-width: 1024px) {
-}
+@media screen and (max-width: 1024px) {}
 
 /*------------------------------------MOBILE-------------------------------------*/
-@media screen and (max-width: 600px) {
-}
-
+@media screen and (max-width: 600px) {}
 .container{
-    
     height: 969px;
     background-color: var(--white);
     margin-top: 184px;
@@ -25,7 +19,6 @@
 .white{
     color:var(--white)
 }
-
 .persons {
     height: 140px;
     width: 47%;
@@ -33,7 +26,6 @@
     background-color: white;
     margin-top: 36px;
 }
-
 .cand-image {
     height: 206px;
     width: 205px;
@@ -66,7 +58,6 @@
     display: flex;
     color:var(--white);
 }
-
 .contenedor_candidato_letras{
     padding-top: 95px;
     display: flex;
@@ -76,21 +67,17 @@
     align-items: center;
     gap: 12px;
 }
-
 .nombre_candidato{
     display: flex;
     font-size: xx-large;
     
 }
-
 .redes_sociales_candidatos{
     display: flex;
     padding-top: 20px;
     
     
-
 }
-
 .twitter_candidatos{
     width: 59px;
     height: 39px;
@@ -100,16 +87,12 @@
     width: 59px;
     height: 39px;
     color:var(--dark-blue-letter)
-
 }
-
 .face_candidatos{
     width: 59px;
     height: 39px;
     color:var(--dark-blue-letter)
-
 }
-
 .datoscand{
     display: flex;
     flex-direction: column;
@@ -149,7 +132,6 @@
     display: flex;
     flex-direction: column;
 }
-
 .i1{
     color:var(--blue);
     width: 44px;
@@ -230,7 +212,6 @@
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
-    
     padding: 12px;
     margin-bottom: 21px;
 }
@@ -241,5 +222,5 @@
     padding-top: 84px;
     justify-content: flex-start;
     font-weight: bold;
-    
-    margin-left: -220px;}
+    margin-left: -220px;
+}

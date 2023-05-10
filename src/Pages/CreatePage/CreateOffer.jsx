@@ -120,7 +120,6 @@ export const CreateOffer = () => {
               </div>
             </div>
           )}
-
           {currentSheet == 1 && (
             <div className="offerImputs">
               <div className="">
@@ -179,6 +178,7 @@ export const CreateOffer = () => {
                   <option value="" disabled>
                     Ubicacion
                   </option>
+
                   {[
                     "Alemania",
                     "Argentina",
@@ -287,7 +287,12 @@ export const CreateOffer = () => {
                   </option>
                 </select>
               </div>
-              <button onClick={handleNextClick} className="button-black button100 mt180">
+
+              <button
+                onClick={handleNextClick}
+                className="button-black button100 mt180"
+              >
+
                 Continuar
               </button>
               {/* <button type="submit"> siguiente</button> */}
@@ -321,12 +326,17 @@ export const CreateOffer = () => {
               <h4 className="">Codificaciones internas</h4>
               <div className="">
                 {/* <label htmlFor="keywords">Añadir palabras clave</label> */}
-                <select {...register("keywords")} defaultValue="" className="button-blue button100">
+
+                <select
+                  {...register("keywords")}
+                  defaultValue=""
+                  className="button-blue button100"
+                >
+
                   <option value="" disabled>
                     Palabras clave
                   </option>
                   <option value="Developer">Developer</option>
-
                   <option value="JavaScript">JavaScript</option>
                   <option value="Frontend">Frontend</option>
                   <option value="Backend">Backend</option>

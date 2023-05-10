@@ -6,7 +6,6 @@ import welcom3 from "../../assets/welcom3.png";
 import whitelogo from "../../assets/whitelogo.png";
 import logoT from "../../assets/logoT.png";
 import { Link } from "react-router-dom";
-
 import "./Welcome.css";
 
 function Welcome() {
