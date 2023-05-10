@@ -1,3 +1,4 @@
+
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import Modal from "react-modal";
@@ -6,9 +7,11 @@ import { useLocation } from "react-router-dom";
 import { SearchContext } from "../../App";
 import "./FilterModal.css";
 
+
 Modal.setAppElement("#root");
 
 export const FilterModal = ({ isOpen, closeModal }) => {
+
     const location = useLocation();
     const { filtros, setFiltros } = useContext(SearchContext);
 
@@ -44,7 +47,6 @@ export const FilterModal = ({ isOpen, closeModal }) => {
         event.preventDefault();
         closeModal();
     };
-
     return (
         <ReactModal className='position' isOpen={isOpen}>
             <div className='modal'>
@@ -78,7 +80,9 @@ export const FilterModal = ({ isOpen, closeModal }) => {
                             "Suiza",
                             "Ucrania",
                             "Venezuela",
+
                         ]
+
                             .sort()
                             .map((country) => (
                                 <option key={country} value={country}>
@@ -86,6 +90,8 @@ export const FilterModal = ({ isOpen, closeModal }) => {
                                 </option>
                             ))}
                     </select>
+
+
 
                     <select name="city" value={filtros.city} onChange={handleInputChange} defaultValue="">
                         <option value="" disabled>Ciudad</option>
@@ -177,7 +183,3 @@ export const FilterModal = ({ isOpen, closeModal }) => {
         </ReactModal>
     )
 }
-
-
-
-

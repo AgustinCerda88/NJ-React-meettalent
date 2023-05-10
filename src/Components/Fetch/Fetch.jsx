@@ -18,8 +18,8 @@ export const Fetch = ({ abierto }) => {
     axios
       .get("http://localhost:8000/offers")
       .then((res) => {
-        console.log(res.data);
-        console.log(res.data[0].lock);
+        // console.log(res.data);
+        // console.log(res.data[0].lock);
 
         const offersData = res.data.map((offer) => {
           return offer;
