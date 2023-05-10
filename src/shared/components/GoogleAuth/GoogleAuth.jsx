@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import "../AuthButton/AuthButton.css";
 
 const GoogleAuth = () => {
     const [jwt, setJwt] = useState(localStorage.getItem("token") || null);
@@ -52,7 +53,7 @@ const GoogleAuth = () => {
         }
     }, [jwt]);
 
-    return <div id="signInDiv"></div>;
+    return <div id="signInDiv" className='loginGoogle'></div>;
 };
 
 export default GoogleAuth;

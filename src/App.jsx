@@ -21,18 +21,17 @@ import { CreateOffer } from "./Pages/CreatePage/CreateOffer";
 import { CandidateDetails } from "./Components/CandidatesDetails/CandidateDetails";
 import Congrats2 from "./Components/Congrats/Congrats2";
 import { AuthProvider } from "./shared/components/AuthProvider/AuthProvider";
-import { AuthContext } from "./shared/components/AuthProvider/AuthProvider";
 export const SearchContext = React.createContext();
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 function AppContent() {
   const [filtros, setFiltros] = useState({
-    location: '',
-    city: '',
-    availability: '',
-    salary: '',
-    scheduleType: '',
+    location: null,
+    city: null,
+    availability: null,
+    salary: null,
+    scheduleType: null,
     keywords: []
 });
 
@@ -41,7 +40,7 @@ function AppContent() {
   const [user, setUser] = useState({});
   const navigate = useNavigate();
   const [searchText, setSearchText] = useState("");
-  // const [oferta, setOferta] = useState({});
+
 
 
 

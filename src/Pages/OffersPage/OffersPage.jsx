@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "./OffersPage.css";
 import { IoIosArrowBack } from "react-icons/io";
 import Searcher from "../../Components/Searcher/Searcher";
-import { AbiertoContext } from "../../Components/Fetch/AbiertoContext";
 import { Fetch } from "../../Components/Fetch/Fetch";
 import { BiSearch } from "react-icons/bi";
 

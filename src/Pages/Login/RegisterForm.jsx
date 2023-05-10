@@ -3,22 +3,34 @@ import "./Register.css";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-
+import { useNavigate } from "react-router-dom";
+import { API } from "../../shared/services/api";
 
 const RegisterForm = () => {
-  const [showPassword1, setShowPassword1] = useState(false); 
-  const [showPassword2, setShowPassword2] = useState(false); 
-
-
+  const [showPassword1, setShowPassword1] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (dataF) => {
-    console.log(dataF);
+  const onSubmit = (formData) => {
+    console.log(formData);
+    API.post("user/register", formData)
+      .then((res) => {
+        console.log(
+          "User registered successfully with response:",
+          res.data,
+          "Full AxiosResponse:",
+          res
+        );
+        navigate("/login");
+      })
+      .catch((error) => console.log(error));
   };
+
   const togglePasswordVisibility1 = () => {
     setShowPassword1(!showPassword1);
   };
@@ -26,7 +38,7 @@ const RegisterForm = () => {
   const togglePasswordVisibility2 = () => {
     setShowPassword2(!showPassword2);
   };
-  
+
   return (
     <div className="register_container">
       <h3>Crear Cuenta</h3>
@@ -41,7 +53,7 @@ const RegisterForm = () => {
               type="text"
               id="nombre"
               placeholder="Nombre de la empresa"
-              {...register("nombre", { required: true })}
+              {...register("name", { required: true })}
             />
             {errors.nombre && (
               <span className="error-message">Campo requerido</span>
@@ -78,7 +90,7 @@ const RegisterForm = () => {
             )}
           </div>
           <div className="register-div">
-            <label className="register-label" htmlFor="contraseña">
+            <label className="register-label" htmlFor="password">
               Contraseña
             </label>
             <div className="password-input">
@@ -87,7 +99,7 @@ const RegisterForm = () => {
                 type={showPassword1 ? "text" : "password"}
                 id="contraseña"
                 placeholder="Contraseña"
-                {...register("contraseña", { required: true })}
+                {...register("password", { required: true })}
               />
               {showPassword1 ? (
                 <AiOutlineEyeInvisible
@@ -115,9 +127,9 @@ const RegisterForm = () => {
                 type={showPassword2 ? "text" : "password"}
                 id="confirmar-contraseña"
                 placeholder="Confirmar Contraseña"
-                {...register("confirmar-contraseña", { required: true })}
+                {...register("repeatPassword", { required: true })}
               />
-               {showPassword2 ? (
+              {showPassword2 ? (
                 <AiOutlineEyeInvisible
                   className="eye-icon2"
                   onClick={togglePasswordVisibility2}
@@ -136,7 +148,7 @@ const RegisterForm = () => {
           <div className="register-div1">
             <label className="register-label1" htmlFor="checkbox">
               Al crear una cuenta,
-              <Link to={"/"} className="textBlue" >
+              <Link to={"/"} className="textBlue">
                 acepta los términos y condiciones{" "}
               </Link>
               relacionados con{" "}
@@ -157,10 +169,9 @@ const RegisterForm = () => {
           </div>
         </div>
       </form>
-          <button type="submit" className="button-black mt40">
-            Continuar
-          </button>
-
+      <button type="submit" className="button-black mt40">
+        Continuar
+      </button>
     </div>
   );
 };

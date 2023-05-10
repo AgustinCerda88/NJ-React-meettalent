@@ -13,7 +13,6 @@ export const OffersDetails = () => {
   const [offer, setOffer] = useState(null);
   const { id } = useParams();
   // const lastOffer = newOffer.find((lastOffer) => lastOffer.id === id);
-  
 
   useEffect(() => {
     if (newOffer && newOffer._id === id) {
@@ -44,40 +43,66 @@ export const OffersDetails = () => {
         <div className="offers">
           {offer ? (
             <div className="job-offer">
-              <h3>{offer.position}</h3>
-              <h4>{offer.company}</h4>
-              <p>
-                <strong>Descripción:</strong>
-              </p>
-              <p> {offer.description}</p>
-              <p>
-                <strong>Requisitos:</strong>
-              </p>
-              <p> {offer.requirements}</p>
-              <p>
-                <strong>Palabras Clave:</strong>
-              </p>
-              <p> {offer.keywords}</p>
-              <p>
-                <strong>Salario:</strong>
-              </p>
-              <p> {offer.salary}</p>
-              <p>
-                <strong>Ubicación:</strong>
-              </p>
-              <p> {offer.location}</p>
-              <p>
-                <strong>Tipo de Jornada:</strong>
-              </p>
-              <p> {offer.scheduleType}</p>
-              <p>
-                <strong>Tipo de Contrato:</strong>
-              </p>
-              <p> {offer.contractType}</p>
-              <p>
-                <strong>Disponibilidad</strong>
-              </p>
-              <p> {offer.availability}</p>
+              <div>
+                <h3>{offer.position}</h3>
+                <h4>{offer.company}</h4>
+              </div>
+
+              <div>
+                <p>
+                  <strong>Descripción:</strong>
+                </p>
+                <p> {offer.description}</p>
+              </div>
+
+              <div>
+                <p>
+                  <strong>Requisitos:</strong>
+                </p>
+                <p> {offer.requirements}</p>
+              </div>
+
+              <div>
+                <p>
+                  <strong>Palabras Clave:</strong>
+                </p>
+                <p> {offer.keywords}</p>
+              </div>
+
+              <div>
+                <p>
+                  <strong>Salario:</strong>
+                </p>
+                <p> {offer.salary}</p>
+              </div>
+
+              <div>
+                <p>
+                  <strong>Ubicación:</strong>
+                </p>
+                <p> {offer.location}</p>
+              </div>
+
+              <div>
+                <p>
+                  <strong>Tipo de Jornada:</strong>
+                </p>
+                <p> {offer.scheduleType}</p>
+              </div>
+
+              <div>
+                <p>
+                  <strong>Tipo de Contrato:</strong>
+                </p>
+                <p> {offer.contractType}</p>
+              </div>
+
+              <div>
+                <p>
+                  <strong>Disponibilidad</strong>
+                </p>
+                <p> {offer.availability}</p>
+              </div>
             </div>
           ) : (
             <p>Cargando...</p>
