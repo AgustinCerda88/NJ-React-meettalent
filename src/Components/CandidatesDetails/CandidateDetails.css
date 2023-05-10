@@ -10,18 +10,16 @@
 }
 
 .container{
+    
+    height: 969px;
     background-color: var(--white);
-    position: fixed;
-    display: block;
-    margin-top: 40px;
+    margin-top: 184px;
     width: 100%;
-    height: 70vh;
     display: flex;
     align-items: center;
     flex-direction: column;
     border-top-right-radius: 29px;
     border-top-left-radius: 29px;
-    bottom: 0;
   }
 
 .white{
@@ -43,7 +41,7 @@
     object-fit: cover;
     position: absolute;
     left: 25%;
-    bottom: 570px;
+    bottom: 480px;
 }
 
 .heart{
@@ -54,7 +52,7 @@
 }
 
 .barra_candidato{
-    width: 432px;
+  width: 100%;
     display: flex;
     justify-content: space-around;
     color:var(--white);
@@ -72,7 +70,7 @@
 .contenedor_candidato_letras{
     padding-top: 95px;
     display: flex;
-    width: 443px;
+    width: 90%;
     height: 45px;
     flex-direction: column;
     align-items: center;
@@ -116,12 +114,32 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 19px;
+    width: 317px;
+    height: 168px;
+    gap: 9px;
+    justify-content: center;
 }
 
 .datospersonales{
+    padding-right: 166px;
     color: var(--dark-blue-letter);
-    font-size:large;
+    font-size: large;
+    display: flex;
+    padding-top: 32px;
+    justify-content: center;
+    margin-bottom: 26px;
+    font-weight: bold;
+}
+
+
+
+.datospersonales1{
+   color: var(--dark-blue-letter);
+    font-size: large;
+    padding-top: 34px;
+    justify-content: flex-start;
+    font-weight: bold;
+    margin-left: 45px;
 
 }
 
@@ -152,3 +170,76 @@
     height: 29px;
     color:var(--blue)
 }
+
+.partefinal{
+    height: 50px;
+    width: 416px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 37px;
+}
+
+.informacion{
+    width: 100%;
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.botonestin{
+    display: flex;
+    width: 101px;
+    height: 43px;
+    border: 2px solid var(--blue);
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.education{
+    width: 21px;
+    height: 21px;
+}
+
+.partefinal{
+    height: 50px;
+    width: 416px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 37px;
+}
+
+.informacion{
+    width: 100%;
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.botonestin1{
+    text-align: center;
+    color: var(--dark-blue-letter);
+    display: flex;
+    width: 337px;
+    height: 80px;
+    border: 2px solid var(--blue);
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+    padding: 12px;
+    margin-bottom: 21px;
+}
+
+.datospersonales2{
+    color: var(--dark-blue-letter);
+    font-size: large;
+    padding-top: 84px;
+    justify-content: flex-start;
+    font-weight: bold;
+    
+    margin-left: -220px;}
