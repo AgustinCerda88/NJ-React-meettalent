@@ -9,7 +9,7 @@
     gap: 20px;
     width: 100%;
     height: 100vh;
-    padding-top: 100px;
+    padding-top: 50px;
   }
 
   .loginInputsRest {
@@ -59,7 +59,7 @@
   }
 
   .loginNew {
-    padding: 20px 0px 40px 0px;
+    padding: 10px 0px 10px 0px;
     color: white;
   }
 
@@ -74,7 +74,7 @@
   .loginRetroceder {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 50px;
     padding-bottom: 200px;
   }
 

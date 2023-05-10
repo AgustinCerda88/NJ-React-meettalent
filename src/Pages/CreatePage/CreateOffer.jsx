@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom"; // Importar useHistory
@@ -9,7 +8,6 @@ import flechaRetrocederNegra from "../../assets/flechaRetrocederNegra.png";
 import vectorX from "../../assets/vectorX.png";
 
 export const CreateOffer = () => {
-  
   const [selectedCountry, setSelectedCountry] = useState("");
 
   const navigate = useNavigate();
@@ -20,8 +18,6 @@ export const CreateOffer = () => {
   const { setNewOffer } = useContext(SearchContext);
 
   const { register, handleSubmit, getValues } = useForm();
-  
-  
 
   const handleNextClick = () => {
     const sheet = currentSheet + 1;
@@ -42,9 +38,8 @@ export const CreateOffer = () => {
       body: JSON.stringify(data),
     };
 
-
-    fetch('http://localhost:8000/offers', requestOptions)
-      .then(response => {
+    fetch("http://localhost:8000/offers", requestOptions)
+      .then((response) => {
         if (!response.ok) {
           throw new Error(response.statusText);
         }
@@ -83,42 +78,57 @@ export const CreateOffer = () => {
   }, []);
 
   return (
-    <>
+    <div>
       <div>
-        <h3>Descripción de la oferta</h3>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="createHeader">
+          <Link to={"/create"}>
+            <img src={flechaRetrocederNegra} className="imgVector" alt=""></img>
+          </Link>
+          <h3>Descripción de la oferta</h3>
+          <Link to={"/login"}>
+            <img src={vectorX} className="imgVector" alt=""></img>
+          </Link>
+        </div>
+
+        <form onSubmit={handleSubmit(onSubmit)} className="createForm">
           {currentSheet === 0 && (
             <div className="container-black">
-
               <div className="createImputs">
                 <h4 className="">Titulo de la nueva oferta</h4>
-                  <input
-                    className="button-blue button98"
-                    type="text"
-                    id="title"
-                    placeholder="Escribe el título"
-                    {...register("position")}
-                  />
+                <input
+                  className="button-blue button98"
+                  type="text"
+                  id="title"
+                  placeholder="Escribe el título"
+                  {...register("position")}
+                />
                 <h4 className="">Compañia de la nueva oferta</h4>
                 <input
-                    className="button-blue button98"
-                    type="text"
-                    id="title"
-                    placeholder="Escribe el nombre de la compañia"
-                    {...register("company")}
-                  />
-              </div>
-                <button onClick={handleNextClick} className="button-white button100">
+                  className="button-blue button98"
+                  type="text"
+                  id="title"
+                  placeholder="Escribe el nombre de la compañia"
+                  {...register("company")}
+                />
+
+                <button
+                  onClick={handleNextClick}
+                  className="button-white button100 mt250"
+                >
                   Comenzar
                 </button>
+              </div>
             </div>
           )}
 
           {currentSheet == 1 && (
-
-            <div className="">
+            <div className="offerImputs">
               <div className="">
-                <select {...register("city")} defaultValue="">
+                <select
+                  {...register("city")}
+                  defaultValue=""
+                  className="button-blue button100"
+                >
                   <option value="" disabled>
                     Ciudad
                   </option>
@@ -161,7 +171,11 @@ export const CreateOffer = () => {
               </div>
 
               <div className="">
-                <select {...register("location")} defaultValue="">
+                <select
+                  {...register("location")}
+                  defaultValue=""
+                  className="button-blue  button100"
+                >
                   <option value="" disabled>
                     Ubicacion
                   </option>
@@ -198,7 +212,11 @@ export const CreateOffer = () => {
                 </select>
               </div>
               <div className="">
-                <select {...register("availability")} defaultValue="">
+                <select
+                  {...register("availability")}
+                  defaultValue=""
+                  className="button-blue  button100"
+                >
                   <option value="" disabled>
                     Disponibilidad
                   </option>
@@ -215,7 +233,11 @@ export const CreateOffer = () => {
 
               <div>
                 <h4 className=""> Condiciones </h4>
-                <select {...register("salary")} defaultValue="">
+                <select
+                  {...register("salary")}
+                  defaultValue=""
+                  className="button-blue  button100"
+                >
                   <option value="" disabled>
                     Salario anual
                   </option>
@@ -228,7 +250,11 @@ export const CreateOffer = () => {
               </div>
 
               <div className="">
-                <select {...register("scheduleType")} defaultValue="">
+                <select
+                  {...register("scheduleType")}
+                  defaultValue=""
+                  className="button-blue  button100"
+                >
                   <option value="" disabled>
                     Tipo de jornada
                   </option>
@@ -239,7 +265,11 @@ export const CreateOffer = () => {
               </div>
 
               <div className="">
-                <select {...register("contractType")} defaultValue="">
+                <select
+                  {...register("contractType")}
+                  defaultValue=""
+                  className="button-blue  button100"
+                >
                   <option value="" disabled>
                     Tipo de contrato
                   </option>
@@ -255,28 +285,26 @@ export const CreateOffer = () => {
                   <option value="Contrato en prácticas">
                     Contrato en prácticas
                   </option>
-
                 </select>
               </div>
-              <button onClick={handleNextClick} className="button-black">
+              <button onClick={handleNextClick} className="button-black button100 mt180">
                 Continuar
               </button>
               {/* <button type="submit"> siguiente</button> */}
-
             </div>
           )}
 
           {currentSheet === 2 && (
-            <div className="">
+            <div className="offer2">
               <h4 className="">Descripcion de candidato</h4>
 
               <div className="">
                 <p className="">Descripción</p>
                 <textarea
-
                   {...register("description")}
                   type="text"
                   placeholder="Descripción..."
+                  className="offerArea"
                 />
               </div>
               <h4 className="">Requisitos de candidato</h4>
@@ -286,14 +314,14 @@ export const CreateOffer = () => {
                   {...register("requirements")}
                   type="text"
                   placeholder="requisitos..."
+                  className="offerArea"
                 />
               </div>
-
 
               <h4 className="">Codificaciones internas</h4>
               <div className="">
                 {/* <label htmlFor="keywords">Añadir palabras clave</label> */}
-                <select {...register("keywords")} defaultValue="">
+                <select {...register("keywords")} defaultValue="" className="button-blue button100">
                   <option value="" disabled>
                     Palabras clave
                   </option>
@@ -321,14 +349,13 @@ export const CreateOffer = () => {
                   <option value="Agilismo">Agilismo</option>
                 </select>
               </div>
-              <button type="submit" className="button-black">
+              <button type="submit" className="button-black button100 mt150">
                 Crear oferta
               </button>
             </div>
           )}
         </form>
       </div>
-    </>
-
+    </div>
   );
 };

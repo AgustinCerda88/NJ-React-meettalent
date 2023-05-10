@@ -52,7 +52,6 @@ const LoginPage = () => {
     setShowPassword(!showPassword);
   };
 
-
   return (
     <div className="loginContainer">
       <div className="loginImages">
@@ -110,13 +109,16 @@ const LoginPage = () => {
           Restablecer la contraseña
         </Link>
       </div>
+
       <div className="loginLine"></div>
+
       <div className="loginNew">
         <Link to={"/register"} className="loginWhite">
           <h3>Crear nueva cuenta</h3>
         </Link>
       </div>
-      <GoogleAuth />
+      
+        <GoogleAuth />
     </div>
   );
 };

@@ -36,7 +36,7 @@ export default function Searcher() {
       )}
       <div>
         <TbAdjustmentsHorizontal onClick={openModal}/>
-        {/* <FilterModal isOpen={open} closeModal={closeModal} /> */}
+        <FilterModal isOpen={open} closeModal={closeModal} />
       </div>
     </>
   );

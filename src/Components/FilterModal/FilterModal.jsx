@@ -1,33 +1,39 @@
-import React, { useContext} from "react";
+
+import React, { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
 import Modal from "react-modal";
 import ReactModal from 'react-modal';
-import "./FilterModal.css";
+import { useLocation } from "react-router-dom";
 import { SearchContext } from "../../App";
+import "./FilterModal.css";
+
 
 Modal.setAppElement("#root");
 
 export const FilterModal = ({ isOpen, closeModal }) => {
 
-    const [filtros, setFiltros] = useContext(SearchContext);
+    const location = useLocation();
+    const { filtros, setFiltros } = useContext(SearchContext);
+
 
     const handleInputChange = event => {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-    
+
         if (name === 'keywords') {
-            const keywords = filtros.keywords.slice(); // make a copy of the array
+            const palabrasClave = filtros.keywords.slice(); // make a copy of the array
             if (value) {
-                keywords.push(target.value);
+                palabrasClave.push(target.value);
             } else {
-                const index = keywords.indexOf(target.value);
+                const index = palabrasClave.indexOf(target.value);
                 if (index !== -1) {
-                    keywords.splice(index, 1);
+                    palabrasClave.splice(index, 1);
                 }
             }
             setFiltros({
                 ...filtros,
-                [name]: keywords
+                [name]: palabrasClave
             });
         } else {
             setFiltros({
@@ -39,22 +45,19 @@ export const FilterModal = ({ isOpen, closeModal }) => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        // hacer algo con los filtros seleccionados, por ejemplo:
-        console.log("estos son los filtros", filtros);
+        closeModal();
     };
-
     return (
         <ReactModal className='position' isOpen={isOpen}>
             <div className='modal'>
                 <div className='modal-header'>
                     <h4>FILTROS</h4>
-                    <button onClick={closeModal} className=''>Cerrar</button>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <select name="location" value={filtros.location} onChange={handleInputChange}>
+                <div className="select">
+                    <select name="location" value={filtros.location} onChange={handleInputChange} defaultValue="">
                         <option value="" disabled>Pais</option>
-                        <option value="" disabled>Pais</option>
-                        {([
+                        {[
                             "Alemania",
                             "Argentina",
                             "Armenia",
@@ -77,7 +80,9 @@ export const FilterModal = ({ isOpen, closeModal }) => {
                             "Suiza",
                             "Ucrania",
                             "Venezuela",
-                        ])
+
+                        ]
+
                             .sort()
                             .map((country) => (
                                 <option key={country} value={country}>
@@ -86,9 +91,11 @@ export const FilterModal = ({ isOpen, closeModal }) => {
                             ))}
                     </select>
 
-                    <select name="city" value={filtros.city} onChange={handleInputChange}>
+
+
+                    <select name="city" value={filtros.city} onChange={handleInputChange} defaultValue="">
                         <option value="" disabled>Ciudad</option>
-                        {([
+                        {[
                             "A Coruña",
                             "Alicante",
                             "Almería",
@@ -116,7 +123,7 @@ export const FilterModal = ({ isOpen, closeModal }) => {
                             "Vigo",
                             "Vitoria",
                             "Zaragoza",
-                        ])
+                        ]
                             .sort()
                             .map((city) => (
                                 <option key={city} value={city}>
@@ -125,7 +132,7 @@ export const FilterModal = ({ isOpen, closeModal }) => {
                             ))}
                     </select>
 
-                    <select name="availability" value={filtros.availability} onChange={handleInputChange}>
+                    <select name="availability" value={filtros.availability} onChange={handleInputChange} defaultValue="">
                         <option value="" disabled>Disponibilidad</option>
                         <option value="full-time">Tiempo completo</option>
                         <option value="part-time">Medio tiempo</option>
@@ -135,7 +142,7 @@ export const FilterModal = ({ isOpen, closeModal }) => {
                         <option value="flexible">Flexible</option>
                     </select>
 
-                    <select name="salary" value={filtros.salary} onChange={handleInputChange}>
+                    <select name="salary" value={filtros.salary} onChange={handleInputChange} defaultValue="">
                         <option value="" disabled>Salario anual</option>
                         <option value="" disabled>Salario anual</option>
                         <option value="16000-20000">16000-20000€</option>
@@ -143,44 +150,34 @@ export const FilterModal = ({ isOpen, closeModal }) => {
                         <option value="30000-40000">30000-40000€</option>
                     </select>
 
-                    <select name="scheduleType" value={filtros.scheduleType} onChange={handleInputChange}>
+                    <select name="scheduleType" value={filtros.scheduleType} onChange={handleInputChange} defaultValue="">
                         <option value="" disabled>Tipo de jornada</option>
                         <option value="" disabled>Tipo de jornada</option>
                         <option value="morning">Mañana</option>
                         <option value="afternoon">Tarde</option>
                         <option value="evening">Noche</option>
                     </select>
- <div className="keyword-checkboxes">
-                    <label>
-                        <input type="checkbox" name="keywords" value="Developer" onChange={handleInputChange} />
-                        Developer
-                    </label>
-                    <label>
-                        <input type="checkbox" name="keywords" value="Javascript" onChange={handleInputChange} />
-                        Javascript
-                    </label>
-                    <label>
-                        <input type="checkbox" name="keywords" value="Liderazgo" onChange={handleInputChange} />
-                        Liderazgo
-                    </label>
-                    <label>
-                        <input type="checkbox" name="keywords" value="Oratoria" onChange={handleInputChange} />
-                        Oratoria
-                    </label>
-                    <label>
-                        <input type="checkbox" name="keywords" value="Creatividad" onChange={handleInputChange} />
-                        Creatividad
-                    </label>
-                    <label>
-                        <input type="checkbox" name="keywords" value="UX/UI" onChange={handleInputChange} />
-                        UX/UI
-                    </label>
-                    <label>
-                        <input type="checkbox" name="keywords" value="Diseño" onChange={handleInputChange} />
-                        Diseño
-                    </label>
-</div>
-                    <button type="submit" className="filter-button">Filtrar</button>
+                    </div>
+                    <div className="keyword-checkboxes">
+                        <label><input type="checkbox" name="keywords" value="Developer" onChange={handleInputChange} />Developer</label>
+                        <label><input type="checkbox" name="keywords" value="JavaScript" onChange={handleInputChange} />JavaScript</label>
+                        <label><input type="checkbox" name="keywords" value="Frontend" onChange={handleInputChange} />Frontend</label>
+                        <label><input type="checkbox" name="keywords" value="Backend" onChange={handleInputChange} />Backend</label>
+                        <label><input type="checkbox" name="keywords" value="Fullstack" onChange={handleInputChange} />Fullstack</label>
+                        <label><input type="checkbox" name="keywords" value="Mobile" onChange={handleInputChange} />Mobile</label>
+                        <label><input type="checkbox" name="keywords" value="DevOps" onChange={handleInputChange} />DevOps</label>
+                        <label><input type="checkbox" name="keywords" value="Big Data" onChange={handleInputChange} />Big Data</label>
+                        <label><input type="checkbox" name="keywords" value="Inteligencia Artificial" onChange={handleInputChange} />Inteligencia Artificial</label>
+                        <label><input type="checkbox" name="keywords" value="Ciberseguridad" onChange={handleInputChange} />Ciberseguridad</label>
+                        <label><input type="checkbox" name="keywords" value="Cloud" onChange={handleInputChange} />Cloud</label>
+                        <label><input type="checkbox" name="keywords" value="Redes" onChange={handleInputChange} />Redes</label>
+                        <label><input type="checkbox" name="keywords" value="Base de datos" onChange={handleInputChange} />Base de datos</label>
+                        <label><input type="checkbox" name="keywords" value="UI/UX" onChange={handleInputChange} />UI/UX</label>
+                        <label><input type="checkbox" name="keywords" value="Diseño" onChange={handleInputChange} />Diseño</label>
+                        <label><input type="checkbox" name="keywords" value="Gestión de proyectos" onChange={handleInputChange} />Gestión de proyectos</label>
+                        <label><input type="checkbox" name="keywords" value="Agilismo" onChange={handleInputChange} />Agilismo</label>
+                    </div>
+                    <button type="submit" className="button-blue">Filtrar</button>
                 </form>
             </div>
         </ReactModal>

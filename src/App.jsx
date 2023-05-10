@@ -28,11 +28,11 @@ const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 function AppContent() {
   const [filtros, setFiltros] = useState({
-    location: '',
-    city: '',
-    availability: '',
-    salary: '',
-    scheduleType: '',
+    location: null,
+    city: null,
+    availability: null,
+    salary: null,
+    scheduleType: null,
     keywords: []
 });
 
@@ -46,7 +46,6 @@ function AppContent() {
 
 
   return (
-
     <AuthProvider>
       <JwtContext.Provider value={{ jwt, setJwt }}>
         <SearchContext.Provider value={{ searchText, setSearchText, newOffer, setNewOffer, filtros, setFiltros }}>
