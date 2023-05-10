@@ -89,14 +89,13 @@ export const OffersDetails = () => {
                 </p>
                 <p> {offer.scheduleType}</p>
               </div>
-
               <div>
+
                 <p>
                   <strong>Tipo de Contrato:</strong>
                 </p>
                 <p> {offer.contractType}</p>
               </div>
-
               <div>
                 <p>
                   <strong>Disponibilidad</strong>

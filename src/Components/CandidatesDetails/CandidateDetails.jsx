@@ -59,6 +59,7 @@ export const CandidateDetails = () => {
           <div className="contenedor_candidato_letras">
             <img className="cand-image" src={candidate.image} alt="candidate" />
             <h3 className="nombre_candidato">
+
               {candidate.name} {candidate.surname}
             </h3>
             <h3>{candidate.profession}</h3>
@@ -115,5 +116,6 @@ export const CandidateDetails = () => {
         )}
       </div>
     </div>
+
   );
 };

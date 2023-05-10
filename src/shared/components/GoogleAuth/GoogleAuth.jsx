@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import "../AuthButton/AuthButton.css";
 
+
 const GoogleAuth = () => {
     const [jwt, setJwt] = useState(localStorage.getItem("token") || null);
     const navigate = useNavigate();

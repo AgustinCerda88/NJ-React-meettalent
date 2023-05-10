@@ -1,3 +1,4 @@
+
 /* .modal {
   background-color: var(--white);
   border-radius: 10px;
@@ -45,7 +46,8 @@
 }
 
 .modal-header h4 {
-  font-size: 20px;
+  text-align: center;
+  font-size: 2rem;
   margin: 0;
 }
 
@@ -61,6 +63,7 @@
 
 .modal-header button:hover {
   background-color: #3e8e41;
+
 }
 
 .filter-select {
@@ -69,8 +72,23 @@
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
+
 }
 
+/* .select {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  width: 50px;
+} */
+select{
+  border: 1px solid black;
+  gap: 2px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  width: 200px;
+}
 .keyword-checkboxes {
 
   display: flex;
@@ -80,6 +98,7 @@
   overflow-y: scroll;
   height: 40vh;
   padding-bottom: 10px;
+
 }
 
 .keyword-checkboxes label {
@@ -96,14 +115,12 @@
 
 }
 
-.filter-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 4px;
+.keyword-checkboxes label {
+  display: flex;
+  align-items: center;
   cursor: pointer;
+  font-size: 1.2rem;
+  color: #333;
 }
 
 select{
@@ -114,3 +131,4 @@ select{
   margin-bottom: 1rem;
   width: 200px;
 }
+

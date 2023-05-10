@@ -287,10 +287,12 @@ export const CreateOffer = () => {
                   </option>
                 </select>
               </div>
+
               <button
                 onClick={handleNextClick}
                 className="button-black button100 mt180"
               >
+
                 Continuar
               </button>
               {/* <button type="submit"> siguiente</button> */}
@@ -324,11 +326,13 @@ export const CreateOffer = () => {
               <h4 className="">Codificaciones internas</h4>
               <div className="">
                 {/* <label htmlFor="keywords">Añadir palabras clave</label> */}
+
                 <select
                   {...register("keywords")}
                   defaultValue=""
                   className="button-blue button100"
                 >
+
                   <option value="" disabled>
                     Palabras clave
                   </option>

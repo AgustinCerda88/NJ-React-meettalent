@@ -180,6 +180,18 @@ input {
   width: 98%;
 }
 
+.mt250 {
+  margin-top: 250px;
+}
+
+.mt180 {
+  margin-top: 180px;
+}
+
+.mt150 {
+  margin-top: 150px;
+}
+
 /*------------------------------------TABLET-------------------------------------*/
 
 @media screen and (max-width: 1024px) {

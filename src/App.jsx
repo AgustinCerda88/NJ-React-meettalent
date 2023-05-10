@@ -45,7 +45,6 @@ function AppContent() {
 
 
   return (
-
     <AuthProvider>
       <JwtContext.Provider value={{ jwt, setJwt }}>
         <SearchContext.Provider value={{ searchText, setSearchText, newOffer, setNewOffer, filtros, setFiltros }}>
